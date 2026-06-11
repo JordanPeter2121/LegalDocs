@@ -1,4 +1,5 @@
 name: SonarCloud Analysis
+
 on:
   push:
     branches: [ main ]
@@ -10,12 +11,17 @@ jobs:
     name: SonarCloud
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
       
       - name: SonarCloud Scan
-        uses: SonarSource/sonarcloud-github-action@master
+        uses: SonarSource/sonarqube-scan-action@v5
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        with:
+          args: >
+            -Dsonar.projectKey=JordanPeter2121_LegalDocs
+            -Dsonar.organization=jordanpeter2121
+            -Dsonar.sources=.
