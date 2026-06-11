@@ -1,5 +1,4 @@
 name: SonarCloud Analysis
-
 on:
   push:
     branches: [ main ]
@@ -18,10 +17,4 @@ jobs:
       - name: SonarCloud Scan
         uses: SonarSource/sonarqube-scan-action@v5
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        with:
-          args: >
-            -Dsonar.projectKey=JordanPeter2121_LegalDocs
-            -Dsonar.organization=jordanpeter2121
-            -Dsonar.sources=.
+          SONAR_TOKEN: ${{ secrets.6d15d92c6cc55bf4fffab90c5f3ab80952a42c91 }}
